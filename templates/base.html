@@ -18,16 +18,19 @@
 {% if user.is_authenticated %}
 <!-- Just an image -->
 {% if request.user.is_staff %}
-<nav class="navbar navbar-dark bg-dark" style="margin-top: 10px;">
-  <a class="navbar-brand" href="{% url 'home' %}"">
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}">
     <img src="{% static 'image/ps.png' %}" width="150" height="45" alt="">
   </a>
-  <h1 style=" color:rgb(255, 255, 255);">Hi <span id="username" style="text-transform:capitalize; margin-right:200px;">Admin</span></h1>
-</h1>
+  <div class="form-inline">
+    <h2 style=" color:rgb(255, 255, 255); margin-right: 10px;">Hi Admin </h2>
+  <a class="btn btn-primary" style="text-align:center;" href="{% url 'logout' %}"
+  role="button">Logout</a>
+  </div>
 </nav>
 {% else %}
 <nav class="navbar navbar-dark bg-dark" style="margin-top: 10px;">
-  <a class="navbar-brand" href="{% url 'home' %}"">
+  <a class="navbar-brand" href="{% url 'home' %}">
     <img src="{% static 'image/ps.png' %}" width="150" height="45" alt="">
   </a>
   <h1 style=" color:rgb(255, 255, 255);">Hi <span id="username" style="text-transform:capitalize; margin-right:200px;">{{ user.first_name }} </span></h1>
@@ -38,7 +41,7 @@
 {% else %}
 <!-- Just an image -->
 <nav class="navbar navbar-dark bg-dark" style="margin-top: 10px;">
-  <a class="navbar-brand" href="{% url 'home' %}"">
+  <a class="navbar-brand" href="{% url 'home' %}">
     <img src="{% static 'image/ps.png' %}" width="150" height="45" alt="">
   </a>
 </nav>
