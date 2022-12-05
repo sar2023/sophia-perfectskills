@@ -19,35 +19,26 @@
     </div>
 </div>
 
-
-
-<div class="container-fluid" style="margin-top:20px ;margin-left: 50px;">
+<div class="container">
     <div class="row">
-        <div class="col">
-            <h3></h3>
-
+        {% for video in video.all reversed %}
+        <div class="col-md-4" style="margin-top:10px ;" >
+            <div class="card">
+                <div class="card-header" style="background-color: rgba(0, 217, 255, 0.055);">
+                    <video width="320" height="240" controls>
+                        <source src="http://127.0.0.1:8000/media//{{ video.videoAns }}" type="video/webm">
+                    </video>
+                </div>
+                <div class="card-body">
+                    <h6>User Name : {{ video.user_name }}</h6>
+                    <a href="http://127.0.0.1:8000/media//{{ video.videoAns }}" class="btn btn-primary">View Analysis</a>
+                    <a href="#" class="btn btn-primary">Share Video</a>
+                    <hr>
+                </div>
+            </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 
-
-<div class="container-fluid" style="margin-top:10px ;">
-    {% for video in video.all reversed %}
-    {% if forloop.first %}<div class="row">{% endif %}
-        <div style=" margin-left: 10px; padding-top: 10px;
-    padding-right: 50px;
-    padding-bottom: 10px;
-    padding-left: 50px;" class="col-xs-4">
-            <video width="320" height="240" controls>
-                <source src="https://sophia-perfectskills.herokuapp.com/media//{{ video.videoAns }}" type="video/webm">
-            </video>
-            <h6>User Name : {{ video.user_name }}</h6>
-            <hr>
-        </div>
-        {% if forloop.counter|divisibleby:3 %}
-    </div>
-    <div class="row">{% endif %}
-        {% if forloop.last %}</div>{% endif %}
-    {% endfor %}
-</div>
 {% endblock %}

@@ -35,7 +35,7 @@
     <h3>Recent Submissions</h3><hr>
     {% for video in video.all reversed %}
     <ul>
-        <a href="https://sophia-perfectskills.herokuapp.com/media//{{ video.videoAns }}"><li>{{ video.user_name }}--{{ video.assessment_name }}</li></a>
+        <a href="http://127.0.0.1:8000/media//{{ video.videoAns }}"><li>{{ video.user_name }}--{{ video.assessment_name }}</li></a>
     </ul>
     {% endfor %}
 </div>
